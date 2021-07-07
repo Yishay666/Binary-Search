@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Search</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="./imgs/icon.png" />
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="main"> 
+        <div class="headline" id="headline" data-aos="fade-up">
+            <h1>Binary Search</h1>
+            <h2>Target Range (1 - 5)</h2>
+        </div>
+        <div class="prev-app" id="prev-app" data-aos="fade-up">
+            <input id="inputRange" type="number" min='5' max='150' value="5" oninput='setRange()'>
+            <input id="range" type="range" min="5" max="150" value="5" class="range blue" oninput="setInputRange()"/>
+            <button id="submitRange">Next</button>
+        </div>
+        <div class="main-app" id="main-app" data-aos="fade-up" style="display: none;">
+            <div class="arrs" id='arrs'></div>
+            <input id="number" type="number" placeholder="search object" value="" oninput="setTarget(this.value)">
+            <button id="btn">Start</button>
+            <button id="stepsBtn" style="display: none">Show Steps</button>
+        </div>
+        <div class="steps" id="steps" data-aos="fade-up" style="display: none;">
+            <div class="arrs" id="showStep">
+                
+            </div>
+            <div class="btns">
+                <button id="BackWardsBtn" style="width: 145px;">&lArr;</button>
+                <button id="ForWardBtn" style="width: 145px;">&rArr;</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
+</html>
