@@ -66,12 +66,12 @@ function search(n){
             steps.push({step: addH2})
             stepsBtn.style.display = 'block';
         } 
-    },50);
+    },500);
 }
 
 
 function createH2(primes, n){
-    addH2 = '<h2>[';
+    addH2 = `<h2 data-aos="fade-right">[`;
     primes.map(i => {
         if(i == n) {
             addH2 += `, <span class="yellow">${i}</span>`
@@ -97,11 +97,11 @@ function setTarget(v){
 }
 function setInputRange(){
     inputRange.value = range.value;
-    headline.children[1].innerHTML = `Target Range (1 - ${inputRange.value})`;
+    headline.children[1].innerHTML = `Set Range (1 - ${inputRange.value})`;
 }
 function setRange(){
     range.value = inputRange.value;
-    headline.children[1].innerHTML = `Target Range (1 - ${inputRange.value})`;
+    headline.children[1].innerHTML = `Set Range (1 - ${inputRange.value})`;
 }
 submitRangeBtn.addEventListener('click', () => {
     if(inputRange.max == '150' && inputRange.min == '5'){
@@ -120,17 +120,20 @@ stepsBtn.addEventListener('click', () => {
     main_app.style.display = 'none';
     stepsElem.style.display = 'flex';
 
+    headline.children[1].innerHTML = "Step 1";
     showStep.innerHTML = steps[counter].step;
 })
 ForwardStep.addEventListener('click', () => {
-    if(counter != steps.length-1) {
-        counter++;
-        showStep.innerHTML = steps[counter].step;
-    }
+    counter = counter != steps.length-1 ? counter + 1 : 0;
+
+    steps[counter].step = steps[counter].step.replace('fade-left', 'fade-right');
+    showStep.innerHTML = steps[counter].step;
+    headline.children[1].innerHTML = `Step ${counter+1}`;
 })
 BackWardsBtn.addEventListener('click', () => {
-    if(counter != 0){
-        counter--;
-        showStep.innerHTML = steps[counter].step;
-    } 
+    counter = counter != 0 ? counter - 1 : steps.length-1;
+    
+    steps[counter].step = steps[counter].step.replace('fade-right', 'fade-left');
+    showStep.innerHTML = steps[counter].step;
+    headline.children[1].innerHTML = `Step ${counter+1}`;
 })
