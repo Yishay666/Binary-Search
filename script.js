@@ -100,11 +100,13 @@ function setInputRange(){
     headline.children[1].innerHTML = `Set Range (1 - ${inputRange.value})`;
 }
 function setRange(){
+    if(inputRange.value > 150) inputRange.value = 150;
+    if(inputRange.value < 5) inputRange.value = 5;
     range.value = inputRange.value;
     headline.children[1].innerHTML = `Set Range (1 - ${inputRange.value})`;
 }
 submitRangeBtn.addEventListener('click', () => {
-    if(inputRange.max == '150' && inputRange.min == '5'){
+    if(inputRange.value <= 150 && inputRange.value >= 5){
         for(var i = 1; i<=inputRange.value; i++){
             primes.push(i);
         }

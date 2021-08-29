@@ -16,15 +16,15 @@
             <h2>Set Range (1 - 5)</h2>
         </div>
         <div class="prev-app" id="prev-app">
-            <input id="inputRange" type="number" min='5' max='150' value="5" oninput='setRange()'>
+            <input id="inputRange" type="number" min=5 max=150 value=5 oninput='setRange()'>
             <input id="range" type="range" min="5" max="150" value="5" class="range blue" oninput="setInputRange()"/>
-            <button id="submitRange">Next</button>
+            <button id="submitRange" type='submit'>Next</button>
         </div>
         <div class="main-app" id="main-app" style="display: none;">
             <div class="arrs" id='arrs'></div>
             <input id="number" type="number" placeholder="search object" value="" oninput="setTarget(this.value)">
             <button id="btn">Start</button>
-            <button id="stepsBtn" data-aos="fade-left" data-aos-delay="500" style="display: none">Show Steps</button>
+            <button id="stepsBtn" style="display: none">Show Steps</button>
         </div>
         <div class="steps" id="steps" style="display: none;">
             <div class="arrs" id="showStep">
